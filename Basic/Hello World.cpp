@@ -4,6 +4,7 @@ int main()
 {
 
     std::cout << "Hello World, this is first C++ programming output." << std::endl;
-    getchar();
+
+    system("pause");
     return 0;
 }
