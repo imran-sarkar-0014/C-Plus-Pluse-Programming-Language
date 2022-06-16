@@ -1,4 +1,9 @@
 #include <iostream>
+#include <ctime>
+#include <ratio>
+#include <chrono>
+
+int global_counter = 0;
 
 class ListNode
 {
@@ -34,6 +39,12 @@ public:
     {
         std::cout << this->data << " ";
     }
+
+    ~ListNode()
+    {
+        global_counter++;
+        // std::cout << "free item :" << global_counter << " times" << std::endl;
+    }
 };
 
 class LinkedList
@@ -46,7 +57,7 @@ public:
     void show()
     {
         ListNode *curr = this->head;
-        while (curr != nullptr)
+        while (curr)
         {
             curr->show();
             curr = curr->get_next();
@@ -57,7 +68,7 @@ public:
     void showFromBack()
     {
         ListNode *curr = this->tail;
-        while (curr != nullptr)
+        while (curr)
         {
             curr->show();
             curr = curr->get_previous();
@@ -76,18 +87,72 @@ public:
         this->tail->setNext(new_node);
         this->tail = new_node;
     }
+
+    int pop()
+    {
+        ListNode *last = this->tail;
+        if (!last)
+            return 0;
+
+        this->tail = last->get_previous();
+        const int num = last->get_data();
+
+        if (this->tail)
+        {
+            this->tail->setNext(nullptr);
+        }
+        else
+        {
+            this->head = nullptr;
+        }
+
+        delete last;
+
+        return num;
+    }
+
+    int pop(int n)
+    {
+        ListNode *first = this->head;
+        if (!first)
+            return 0;
+
+        this->head = first->get_next();
+        const int num = first->get_data();
+
+        if (this->head)
+        {
+            this->head->setPrevious(nullptr);
+        }
+        else
+        {
+            this->tail = nullptr;
+        }
+
+        delete first;
+
+        return num;
+    }
 };
 
 int main()
 {
-
+    std::cout << "Wait, it's working...." << std::endl;
+    std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
     LinkedList myList;
-    myList.insert(10);
-    myList.insert(13);
-    myList.insert(16);
-    myList.insert(12);
+    for (int i = 0; i < 200000; i++)
+        myList.insert(i);
 
+    for (int i = 0; i < 200000 - 100; i++)
+        myList.pop(1);
+    std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
+    std::cout << global_counter << " times free " << std::endl;
+    std::cout << "Duration  :" << (std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1).count()) << "s" << std::endl;
+
+    std::cout << "Printing from beggining : ";
     myList.show();
+
+    std::cout << "\nPrinting from end : ";
     myList.showFromBack();
 
     system("pause");
