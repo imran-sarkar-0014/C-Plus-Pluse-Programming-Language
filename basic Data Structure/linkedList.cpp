@@ -30,9 +30,9 @@ public:
         this->data = new_data;
     }
 
-    ListNode *get_previous() { return this->previous_node; }
-    ListNode *get_next() { return this->next_node; }
-    int get_data() { return this->data; }
+    ListNode *get_previous() const { return this->previous_node; }
+    ListNode *get_next() const { return this->next_node; }
+    int get_data() const { return this->data; }
     void show()
     {
         std::cout << this->data << " ";
