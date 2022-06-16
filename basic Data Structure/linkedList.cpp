@@ -43,7 +43,6 @@ public:
     ~ListNode()
     {
         global_counter++;
-        // std::cout << "free item :" << global_counter << " times" << std::endl;
     }
 };
 
