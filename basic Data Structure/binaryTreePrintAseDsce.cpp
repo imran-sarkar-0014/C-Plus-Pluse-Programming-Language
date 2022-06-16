@@ -72,6 +72,25 @@ private:
         print(n->get_right());
     }
 
+    void printAssending(Node *n)
+    {
+        if (!n)
+            return;
+
+        printAssending(n->get_left());
+        std::cout << n->get_data() << " ";
+        printAssending(n->get_right());
+    }
+
+    void printDescending(Node *n)
+    {
+        if (!n)
+            return;
+        printDescending(n->get_right());
+        std::cout << n->get_data() << " ";
+        printDescending(n->get_left());
+    }
+
 public:
     void add(int n)
     {
@@ -87,6 +106,17 @@ public:
     void show()
     {
         print(this->root);
+        std::cout << std::endl;
+    }
+    void showAssending()
+    {
+        printAssending(this->root);
+        std::cout << std::endl;
+    }
+
+    void showDescending()
+    {
+        printDescending(this->root);
         std::cout << std::endl;
     }
 };
@@ -113,6 +143,12 @@ int main()
 
     std::cout << "Show in order :" << std::endl;
     bt.show();
+
+    std::cout << "Show Assending order :" << std::endl;
+    bt.showAssending();
+
+    std::cout << "Show Descending order : " << std::endl;
+    bt.showDescending();
 
     system("pause");
     return 0;
