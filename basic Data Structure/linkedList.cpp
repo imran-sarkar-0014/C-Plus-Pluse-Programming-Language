@@ -1,6 +1,4 @@
 #include <iostream>
-#include <ctime>
-#include <ratio>
 #include <chrono>
 
 int global_counter = 0;
@@ -139,10 +137,10 @@ int main()
     std::cout << "Wait, it's working...." << std::endl;
     std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
     LinkedList myList;
-    for (int i = 0; i < 200000; i++)
+    for (int i = 0; i < 100000; i++)
         myList.insert(i);
 
-    for (int i = 0; i < 200000 - 100; i++)
+    for (int i = 0; i < 100000 - 100; i++)
         myList.pop(1);
     std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
     std::cout << global_counter << " times free " << std::endl;
