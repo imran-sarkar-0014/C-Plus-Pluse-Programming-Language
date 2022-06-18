@@ -1,3 +1,9 @@
+This setup for Microsoft Visual Studio Code.
+to run c++ code you have to ensure you have those tools.
+
+1. Mingw for c and c++ programming tools installed in your system. root is "C:\\".
+2. You have to install "C/C++" vs extension provided by microsoft
+
 # C-Programming-Language
 C++ Programming Language practice and reimplemention.
 
