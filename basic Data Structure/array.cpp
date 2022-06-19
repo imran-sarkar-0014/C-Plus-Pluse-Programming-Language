@@ -10,6 +10,11 @@ int main()
         std::cout << my_arr[i] * 2 << ' ';
     }
 
+    for (int i = 0; i < 11; i++)
+    {
+        std::cout << my_arr[i] * 2 << ' ';
+    }
+
     std::cout << std::endl;
     system("pause");
     return 0;
