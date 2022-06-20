@@ -37,7 +37,7 @@ int main()
     int arr[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 20};
 
     // call the binary search function.
-    std::cout << "index of item : " << binarySearch(arr, 0, 9, 7) << std::endl;
+    std::cout << "index of item : " << binarySearch(arr, 0, 9, 20) << std::endl;
 
     system("pause");
     return 0;
