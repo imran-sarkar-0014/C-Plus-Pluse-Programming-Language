@@ -33,9 +33,9 @@ void merge_overlap(std::vector<Time> &list, Time &time)
         return;
     }
 
-    if (time.start <= list.front().end)
+    if (time.start <= list.back().end)
     {
-        list.front().end = MAX(list.front().end, time.end);
+        list.back().end = MAX(list.back().end, time.end);
     }
     else
         list.push_back(time);
@@ -46,8 +46,12 @@ int main()
     std::vector<Time> times;
     times.push_back(Time(1, 3));
     times.push_back(Time(2, 6));
-    times.push_back(Time(8, 10));
+    times.push_back(Time(8, 25));
+    times.push_back(Time(9, 10));
     times.push_back(Time(15, 18));
+    times.push_back(Time(26, 31));
+    times.push_back(Time(30, 38));
+    times.push_back(Time(40, 70));
 
     std::vector<Time> result;
 
