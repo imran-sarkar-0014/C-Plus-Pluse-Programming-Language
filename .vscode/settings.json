@@ -47,7 +47,8 @@
     "ratio": "cpp",
     "chrono": "cpp",
     "ctime": "cpp",
-    "map": "cpp"
+    "map": "cpp",
+    "iomanip": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "C:/MinGW/bin/gcc.exe",
   "C_Cpp_Runner.cppCompilerPath": "g++",
