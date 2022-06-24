@@ -24,7 +24,7 @@ class Solution
         if (isBadVersion(left))
             return left;
 
-        int mid = (left + 1) + (right - left) / 2;
+        int mid = (left) + (right - left) / 2;
 
         if (isBadVersion(mid))
             return _firstBadVersion(left + 1, mid);
@@ -44,12 +44,9 @@ class Solution
 
             mid = (left) + ((right - left) / 2);
             if (isBadVersion(mid))
-            {
-                left = left + 1;
                 right = mid;
-            }
             else
-                left = mid;
+                left = mid + 1;
         }
     }
 
